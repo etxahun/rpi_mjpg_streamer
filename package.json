@@ -1,0 +1,21 @@
+{
+  "name": "odamaeweb_mjpg-streamer",
+  "version": "1.0.0",
+  "description": "Aplicación para gestionar la activación de MJPG-STREAMER.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NESB",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "child_process": "^1.0.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "node-gallery": "^1.1.0",
+    "serve-favicon": "^2.3.0",
+    "serve-static": "^1.11.1",
+    "sys": "0.0.1"
+  }
+}

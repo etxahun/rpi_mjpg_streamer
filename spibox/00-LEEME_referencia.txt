@@ -1,0 +1,3 @@
+Referencia en la que se basa:
+
+  - https://skippy.org.uk/getting-node-and-motion-jpeg-onto-a-r-pi/

@@ -1,0 +1,37 @@
+ACTUALIZADO: 15 de Septiembre de 2016
+=====================================
+
+Referecia:
+
+   - http://www.slidequest.com/q/70ang
+
+ A) INSTALACIÓN:
+
+    He instalado el módulo "Forever":
+
+      >npm -g install forever
+
+ B) EJECUCIÓN:    
+ 
+    Al instalarlo de manea "GLOBAL (-g)" lo ejecutaremos de la siguiente manera:
+
+      >cd <directorio del proyecto>
+      >forever start <nombre_fichero>.js
+
+    El binario (BIN) de Forever se encuentra en: /opt/nodejs/bin/forever
+    Para que sea accesible de manera global, necesitamos incluir el siguiente EXPORT dentro del fichero ".bashrc":
+
+      >nano /root/.bashrc
+	
+         export PATH=$PATH:/opt/nodejs/bin
+
+      >exec bash
+
+ALTERNATIVA TRADICIONAL:
+=======================
+
+Para arrancarlo y dejaro en background y no se nos apague cuando cerremos la sesión SSH:
+
+ >nohup node server.js &
+
+

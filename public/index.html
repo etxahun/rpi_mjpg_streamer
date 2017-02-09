@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Odamae Web Interface</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+	<!--<link rel="icon" href="favicon.ico" type="image/x-icon">-->
+        <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+        <link href="css/main.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="container">
+            <div id="arriba">
+                <object data="http://domonesb.ddns.net:1123/?action=stream" width="320" height="240">
+                    <embed src="http://domonesb.ddns.net:1123/?action=stream" width="320" height="240"> </embed>
+                        Error: No se ha podido cargar el vídeo.
+                </object>
+            </div>
+	    <br>
+	    <br>
+	    <div id="abajo">
+		<table class="tg">
+		  <tr>
+		    <th class="tg-031e"><p><b>MJPG Live Streaming</b></p></th>
+		    <th class="tg-031e"><p><b>Sistema de Vigilancia: SPiBox</b></p></th>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e">
+			<span style="display: inline;">
+                	  <button type="button" id="arranca_mjpg" class="on">On</button>
+			  <hr>
+                	  <button type="button" id="para_mjpg"class="off">Off</button>
+			</span>
+		    </td>
+		    <td class="tg-031e">
+			<span style="display: inline;">
+                	  <button type="button" id="spibox_on" class="on">SPiBox On</button>
+			  <hr>
+                	  <button type="button" id="spibox_off" class="off">SPiBox Off</button>
+			  <hr>
+			  <hr>
+			  <button type="button" class="galeria" onclick="window.location.href='/galeria'">Capturas Registradas</button>
+			</span>
+		    </td>
+		  </tr>
+		</table>
+            </div>
+
+	    <div id="galeria">
+	        <?php
+		$directory = "/home/odamae/spibox/capture/archive";
+		$images = glob($directory . "*.jpg");
+
+		foreach($images as $image)
+		{
+		  echo $image;
+		}
+	        ?>
+            </div>
+        </div> <!-- Fin container -->
+
+	<!-- script references -->
+	<!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
+	<script src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript">
+
+            // ------------------------ ESTADOS INICIALES -----------------------------------------
+
+	    function leeEstadoSistemas(){
+		$.get("estadomjpgstreamer", function(data) {
+
+                            		if (data == 0) {
+                               			//alert("Está apagado!");
+                               			$("#para_mjpg").prop("disabled",true);
+                            		} else if (data == 1) {
+                               			//alert("Está encendido!");
+                               			$("#arranca_mjpg").prop("disabled",true);
+                            		} else {
+                               			alert("Algo no ha funcionado!");
+                            		}
+		});
+
+
+		$.get("estadospibox", function(data) {
+
+                            		if (data == 0) {
+                               			//alert("Está apagado!");
+                               			$("#spibox_off").prop("disabled",true);
+                            		} else if (data == 1) {
+                               			//alert("Está encendido!");
+                               			$("#spibox_on").prop("disabled",true);
+                            		} else {
+                               			alert("Algo no ha funcionado!");
+                            		}
+		});
+	    }
+
+            // ------------------------ ARRANQUE GRAL. SISTEMA ------------------------------------
+
+            $("#arranca_mjpg").click(function() {
+
+        	// Actualizamos el estado de los botones:
+	        $("#arranca_mjpg").prop("disabled",true);
+                $("#para_mjpg").prop("disabled",false);
+	
+		// Hacemos una llamada a "Sistema" para ENCENDER el sistema:
+	  	$.post("sistema", //Required URL of the page on server
+                    { // Data Sending With Request To Server
+		     estado: "on"
+		    },
+		    function(response,status){ // Required Callback Function
+		        //alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);//"response" receives - whatever written in echo of above PHP script.
+                	$('#arriba').delay(500).slideUp(100, function(){ location.reload();});
+		    }
+                ); //Fin del $POST
+	    });
+
+            $("#para_mjpg").click(function() {
+
+        	// Actualizamos el estado de los botones:
+               	$("#para_mjpg").prop("disabled",true);
+              	$("#arranca_mjpg").prop("disabled",false);
+
+		// Hacemos una llamada a "Sistema" para ENCENDER el sistema:
+	        $.post("sistema", //Required URL of the page on server
+                    { // Data Sending With Request To Server
+		    estado: "off"
+		    },
+	            function(response,status){ // Required Callback Function
+		        //alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);//"response" receives - whatever written in echo of above PHP script.
+                	$('#arriba').delay(500).slideUp(100, function(){ location.reload();});
+		    }
+                ); //Fin del $POST
+            });
+
+	    // --------------------------------- SPI BOX ------------------------------------------
+
+            $("#spibox_on").click(function() {
+
+        	// Actualizamos el estado de los botones:
+	        $("#spibox_on").prop("disabled",true);
+                $("#spibox_off").prop("disabled",false);
+	
+		// Hacemos una llamada a "Sistema" para ENCENDER el sistema:
+	  	$.post("spibox", //Required URL of the page on server
+                    { // Data Sending With Request To Server
+		     estado: "on"
+		    },
+		    function(response,status){ // Required Callback Function
+		        //alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);//"response" receives - whatever written in echo of above PHP script.
+		    }
+                ); //Fin del $POST
+	    });
+
+            $("#spibox_off").click(function() {
+
+        	// Actualizamos el estado de los botones:
+               	$("#spibox_off").prop("disabled",true);
+              	$("#spibox_on").prop("disabled",false);
+
+		// Hacemos una llamada a "Sistema" para ENCENDER el sistema:
+	        $.post("spibox", //Required URL of the page on server
+                    { // Data Sending With Request To Server
+		    estado: "off"
+		    },
+	            function(response,status){ // Required Callback Function
+		        //alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);//"response" receives - whatever written in echo of above PHP script.
+		    }
+                ); //Fin del $POST
+            });
+
+
+
+            // ------------------------------------------------------------------------------------   
+            // ------------------------------- DOCUMENT READY -------------------------------------
+            // ------------------------------------------------------------------------------------
+
+            $(document).ready(function() {
+                //alert("Esto es una prueba de que ha cargado bien JQuery!");
+                leeEstadoSistemas();
+            });
+
+        </script>
+
+    </body>
+</html>

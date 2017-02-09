@@ -1,0 +1,46 @@
+Dentro de este proyecto se ha instalado lo siguiente:
+
+ A) Aplicación Web basada en NodeJS: server.js
+  
+     - Express
+     - path
+     - fs
+     - serve-favicon
+     - child_process
+     - node_gallery
+
+ B) PHP: public/resources/
+
+    Utilizamos programas en PHP para las siguiente funciones:
+
+      - arranca_mjpgstreamer.php (misma funcionalidad que camera_start.sh)
+      - para_mjpstreamer.php(mism funcionalidad que camera_stop.sh)
+      - lee_estado_mjpgstreamer.php
+      - lee_estado_spibox.php
+
+
+ C) SHELL SCRIPTS: mjpg-streamer/
+
+     Utilizamos los siguientes shell scripts que implementan la siguientes funciones:
+
+      - camera_start.sh
+      - camera_stop.sh
+
+
+ D) SPIBox: spibox/
+
+     - spibox_start.sh    ==> script que llama al programa en Python ubicado en: /home/odamae/odamae_mjpg-streamer/spibox/spibox.py
+     - spibox_stop.sh
+     - spiboxmessenger.py ==> programa que envia por e-mail (configurado en spibo.conf) un aviso cuando detecta movimiento.
+     - spibox.conf
+
+ E) HTML: public/ y views/
+
+     - index.html  ==> Página principal de la aplicación.
+     - galeria.ejs ==> Página web (template EJS) de la Galeria de imágenes.
+
+
+ F) MJPG-STREAMER: mjpg-streamer/
+
+    - camera_start.sh ==> llama a MJPG-STREAMER ubicado en /usr/src/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer
+    - camera_stop.sh
