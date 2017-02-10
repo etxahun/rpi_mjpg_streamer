@@ -10,7 +10,7 @@ class spiboxMessenger:
 
     def init(self):
         spiboxConf = ConfigParser.ConfigParser()
-        spiboxConf.read('/home/odamae/odamaeweb_mjpg-streamer/spibox/spibox.conf')
+        spiboxConf.read('/home/pi/rpi_mjpg_streamer/spibox/spibox.conf')
         self.emailsubject = spiboxConf.get('email','emailsubject')
         self.emailrecipient = spiboxConf.get('email','emailrecipient')
         self.emailon = spiboxConf.get('email','on')
@@ -18,7 +18,7 @@ class spiboxMessenger:
     def getFileList(self):
        self.filelist = []
        i = 0
-       for file in os.listdir("/home/odamae/odamaeweb_mjpg-streamer/resources/photos"):
+       for file in os.listdir("/home/pi/rpi_mjpg_streamer/resources/photos"):
           if file.endswith(".jpg"):
              self.filelist.extend([None])
              self.filelist[i] = file
@@ -27,13 +27,13 @@ class spiboxMessenger:
     def moveFiles(self):
         for filename in self.filelist:
             #print('moving'+filename)
-            pid = subprocess.call(['sudo','mv','/home/odamae/odamaeweb_mjpg-streamer/resources/photos/'+filename,'/home/odamae/odamaeweb_mjpg-streamer/resources/archive/'])
+            pid = subprocess.call(['sudo','mv','/home/pi/rpi_mjpg_streamer/resources/photos/'+filename,'/home/pi/rpi_mjpg_streamer/resources/archive/'])
 
     def emailFiles(self):
         print(len(self.filelist))
         for filename in self.filelist:
             #print('emailing'+filename)
-            cmd = 'mpack -s "'+self.emailsubject+'" -c image/jpeg /home/odamae/odamaeweb_mjpg-streamer/resources/photos/'+filename + ' '+self.emailrecipient
+            cmd = 'mpack -s "'+self.emailsubject+'" -c image/jpeg /home/pi/rpi_mjpg_streamer/resources/photos/'+filename + ' '+self.emailrecipient
             pid = subprocess.call(cmd, shell=True)
 
 
