@@ -17,8 +17,8 @@
     <body>
         <div id="container">
             <div id="arriba">
-                <object data="http://domonesb.ddns.net:1123/?action=stream" width="320" height="240">
-                    <embed src="http://domonesb.ddns.net:1123/?action=stream" width="320" height="240"> </embed>
+                <object data="http://192.168.20.83:8081/?action=stream" width="320" height="240">
+                    <embed src="http://192.168.20.83:8081/?action=stream" width="320" height="240"> </embed>
                         Error: No se ha podido cargar el vídeo.
                 </object>
             </div>
@@ -54,7 +54,7 @@
 
 	    <div id="galeria">
 	        <?php
-		$directory = "/home/odamae/spibox/capture/archive";
+		$directory = "<spibox_path>/capture/archive";
 		$images = glob($directory . "*.jpg");
 
 		foreach($images as $image)
