@@ -1,7 +1,7 @@
 
 
 # rpi_mjpg_streamer
-Simple MJPG Streaming NodeJS application. 
+Simple MJPG-Streaming NodeJS application. 
 
 ## Installation
 
