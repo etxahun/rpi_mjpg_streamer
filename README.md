@@ -2,8 +2,8 @@
 Simple MJPG-Streaming NodeJS application. 
 
 ## Table of Contents
- - [Installation](#github)
- - [Configuration](#installation)
+ - [Installation](#installation)
+ - [Configuration](#configuration)
  - [Usage](#usage)
  - [Contributing](#contributing)
 
