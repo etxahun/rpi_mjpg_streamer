@@ -1,6 +1,12 @@
 # rpi_mjpg_streamer
 Simple MJPG-Streaming NodeJS application. 
 
+## Table of Contents
+ - [Installation](#github)
+ - [Configuration](#installation)
+ - [Usage](#usage)
+ - [Contributing](#contributing)
+
 ## Installation
 
 First of all install the prerequisites:
@@ -143,9 +149,6 @@ $ nano /root/.bashrc
 
 $ exec bash
 ```
-
-
-
 ## Contributing
 
 1. Fork it!
