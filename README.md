@@ -34,6 +34,9 @@ My RPi has the following IP address: 192.168.20.83 so you can see the camera at 
 
 ## Configuration
 
+The following tweaks are needed in order to make it work:
+
+
 
 
 ## Usage
