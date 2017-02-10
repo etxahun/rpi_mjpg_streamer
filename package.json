@@ -1,5 +1,5 @@
 {
-  "name": "odamaeweb_mjpg-streamer",
+  "name": "rpi_mjpg-streamer",
   "version": "1.0.0",
   "description": "Aplicación para gestionar la activación de MJPG-STREAMER.",
   "main": "server.js",
