@@ -29,7 +29,7 @@ Dentro de este proyecto se ha instalado lo siguiente:
 
  D) SPIBox: spibox/
 
-     - spibox_start.sh    ==> script que llama al programa en Python ubicado en: /home/odamae/odamae_mjpg-streamer/spibox/spibox.py
+     - spibox_start.sh    ==> script que llama al programa en Python ubicado en: /home/pi/rpi_mjpg_streamer/spibox/spibox.py
      - spibox_stop.sh
      - spiboxmessenger.py ==> programa que envia por e-mail (configurado en spibo.conf) un aviso cuando detecta movimiento.
      - spibox.conf
