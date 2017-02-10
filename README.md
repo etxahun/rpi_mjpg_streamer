@@ -31,8 +31,7 @@ After the compilation, shutdown the pi and attach the camera:
 My RPi has the following IP address: 192.168.20.83 so you can see the camera at http://192.168.20.83:8080/stream.html
 
 ## Configuration
-
-:warning: **Warning:** take into considerations the following things:
+:warning: **Warning:** keep in mind the following points:
 * NodeJS Web server port: 8080
 * MJPG-Streamer server port: 8081
 * The project is intended to be installed inside "/home/pi" path.
