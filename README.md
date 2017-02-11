@@ -65,7 +65,7 @@ echo -n 0 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt
  * **camera_start.sh:**
 ``` shell
 echo -n 1 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt"
-./mjpg_streamer -o "output_http.so -w /home/pi/rpi_mjpg_streamer/mjpg-streamer/www -p 8081 -c etxea:etxean3sb" -i "input_raspicam.so -rot 270 -fps 25 -q 50 -x 320 -y 240 ex night"
+./mjpg_streamer -o "output_http.so -w /home/pi/rpi_mjpg_streamer/mjpg-streamer/www -p 8081 -c <user>:<passwd>" -i "input_raspicam.so -rot 270 -fps 25 -q 50 -x 320 -y 240 ex night"
 ```
 
 
