@@ -1,5 +1,7 @@
 # rpi_mjpg_streamer
-Simple MJPG-Streaming NodeJS application. 
+Raspberry Pi's "camera module" together with PIR sensor based NodeJS web application for MJPG-Streaming.
+
+<img src="https://github.com/etxahun/rpi_mjpg_streamer/blob/master/spibox.jpg" width = "30%" />
 
 ## Table of Contents
  - [Installation](#installation)
