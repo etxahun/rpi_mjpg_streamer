@@ -40,8 +40,8 @@ My RPi has the following IP address: 192.168.20.83 so you can see the camera at 
 
 ## Configuration
 :warning: **Warning:** keep in mind the following points:
-* NodeJS Web server port: 8080
-* MJPG-Streamer server port: 8081
+* **NodeJS Web server port:** 8080
+* **MJPG-Streamer server port:** 8081
 * The project is intended to be installed inside "/home/pi" path.
 
 The following tweaks are needed in order to make it work:
