@@ -112,7 +112,7 @@ $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_spibox.txt", "
 $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "r") or die("Unable to open estado_mjpgstreamer.txt file!");
 ```
 
-Additionaly, check that th following lines of "/public/index.html" contains the proper IP address (and MJPG-Streamer PORT):
+Additionaly, check that the following lines of "/public/index.html" contains the proper IP address (and MJPG-Streamer PORT):
 ``` html
             <div id="arriba">
                 <object data="http://192.168.20.83:8081/?action=stream" width="320" height="240">
