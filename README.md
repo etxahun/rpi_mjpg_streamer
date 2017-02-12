@@ -61,14 +61,14 @@ The following tweaks are needed in order to make it work:
 
 * **mjpg-streamer/**
  * **camera_stop.sh:**  
-``` shell 
-echo -n 0 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt"
-```
+ ``` shell 
+ echo -n 0 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt"
+ ```
  * **camera_start.sh:**
-``` shell
+ ``` shell
 echo -n 1 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt"
 ./mjpg_streamer -o "output_http.so -w /home/pi/rpi_mjpg_streamer/mjpg-streamer/www -p 8081 -c <user>:<passwd>" -i "input_raspicam.so -rot 270 -fps 25 -q 50 -x 320 -y 240 ex night"
-```
+ ```
 
 
 * **spibox/**
