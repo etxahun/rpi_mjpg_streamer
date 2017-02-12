@@ -49,26 +49,15 @@ The following tweaks are needed in order to make it work:
 1. If you want or have to customize the path of the project, the following files must be edited:
 
 * **server.js**
-``` javascript
- var path_lee_estado_mjpgstreamer = "/home/pi/rpi_mjpg_streamer/public/resources/lee_estado_mjpgstreamer.php";
- var path_lee_estado_spibox 	  = "/home/pi/rpi_mjpg_streamer/public/resources/lee_estado_spibox.php";
- var path_camera_start 			  = "/home/pi/rpi_mjpg_streamer/mjpg-streamer/camera_start.sh";
- var path_camera_stop 			  = "/home/pi/rpi_mjpg_streamer/mjpg-streamer/camera_stop.sh";
- var path_spibox_start 			  = "/home/pi/rpi_mjpg_streamer/spibox/spibox_start.sh";
- var path_spibox_stop 			  = "/home/pi/rpi_mjpg_streamer/spibox/spibox_stop.sh";
- var path_mjpgstreamer_stop 	  = "/home/pi/rpi_mjpg_streamer/public/resources/para_mjpgstreamer.php";
- var path_borragaleria			  = "/home/pi/rpi_mjpg_streamer/spibox/borra_galeria.sh";
+ ``` javascript
+var path_rpi_mjpg_streamer = "/home/pi/rpi_mjpg_streamer"
 ```
 
 * **mjpg-streamer/**
- * **camera_stop.sh:**  
- ``` shell 
- echo -n 0 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt"
- ```
- * **camera_start.sh:**
- ``` shell
-echo -n 1 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt"
-./mjpg_streamer -o "output_http.so -w /home/pi/rpi_mjpg_streamer/mjpg-streamer/www -p 8081 -c <user>:<passwd>" -i "input_raspicam.so -rot 270 -fps 25 -q 50 -x 320 -y 240 ex night"
+Just configure the following configuration file:
+ * **project_path.cfg**
+ ```sh
+rpi_mjpg_streamer_path="/home/pi/rpi_mjpg_streamer"
  ```
 
 
@@ -98,21 +87,12 @@ cd /home/pi/rpi_mjpg_streamer/resources/photos
  ```
 
 * **public/resources/**
- * **arranca_mjpgstreamer.php:**
+ Just configure the following configuration file:
+ * **project_path_config.php**
  ``` php
-$file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "w") or die("Unable to open file!");
- ```
- * **para_mjpgstreamer.php:**
- ``` php
-$file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "w") or die("Unable to open file!");
- ```
- * **lee_estado_spibox.php:**
- ``` php
-$file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_spibox.txt", "r") or die("Unable to open estado_spibox.txt file!");
- ```
- * **lee_estado_mjpgstreamer.php:**
- ``` php
-$file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "r") or die("Unable to open estado_mjpgstreamer.txt file!");
+<?php
+$rpi_mjpg_streamer_path = '/home/pi/rpi_mjpg_streamer';
+?> 
  ```
 
 Additionaly, check that the following lines of "/public/index.html" contains the proper IP address (and MJPG-Streamer PORT):
