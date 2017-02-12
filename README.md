@@ -141,7 +141,7 @@ Once "forever" is installed we launch the application:
  $ cd <project_path>
  $ forever start nserver.js
 ```
-** Troubleshooting:**
+:wrench: **Troubleshooting:**
 
 The "forever" binary file location: /opt/nodejs/bin/forever
 In order to be globally available the following "EXPORT" line has to be added in ".bashrc":
