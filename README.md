@@ -116,12 +116,12 @@ $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.t
 
 Additionaly, check that the following lines of "/public/index.html" contains the proper IP address (and MJPG-Streamer PORT):
 ``` html
-    <div id="arriba">
-        <object data="http://192.168.20.83:8081/?action=stream" width="320" height="240">
-            <embed src="http://192.168.20.83:8081/?action=stream" width="320" height="240"> </embed>
-                   Error: No se ha podido cargar el vídeo.
-        </object>
-    </div>
+<div id="arriba">
+    <object data="http://192.168.20.83:8081/?action=stream" width="320" height="240">
+        <embed src="http://192.168.20.83:8081/?action=stream" width="320" height="240"> </embed>
+               Error: No se ha podido cargar el vídeo.
+    </object>
+</div>
 ```
 
 ## Usage
