@@ -8,6 +8,7 @@ Raspberry Pi's "camera module" together with PIR sensor based NodeJS web applica
  - [Configuration](#configuration)
  - [Usage](#usage)
  - [Contributing](#contributing)
+ - [References](#references)
 
 ## Installation
 
