@@ -73,55 +73,55 @@ echo -n 1 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt
 
 * **spibox/**
  * **spiboxmessenger.py:**        
-``` python
+ ``` python
 spiboxConf.read('/home/pi/rpi_mjpg_streamer/spibox/spibox.conf')
 for file in os.listdir("/home/pi/rpi_mjpg_streamer/resources/photos"):
 pid = subprocess.call(['sudo','mv','/home/pi/rpi_mjpg_streamer/resources/photos/'+filename,'/home/pi/rpi_mjpg_streamer/resources/archive/'])
 cmd = 'mpack -s "'+self.emailsubject+'" -c image/jpeg /home/pi/rpi_mjpg_streamer/resources/photos/'+filename + ' '+self.emailrecipient
-```
+ ```
  * **spibox.py:**        
-``` python
+ ``` python
 cmd="raspistill -w 640 -h 480 -rot 270 -n -t 10 -q 10 -e jpg -th none -o /home/pi/rpi_mjpg_streamer/resources/photos/" + capturename+"_%d.jpg" % (i)
-```
+ ```
  * **spibox_stop.sh:**  
-``` shell
+ ``` shell
 echo -n 0 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_spibox.txt"
-```
+ ```
  * **spibox_start.sh:**
-``` shell
+ ``` shell
 echo -n 1 > "/home/pi/rpi_mjpg_streamer/public/resources/estado_spibox.txt"
-```
+ ```
  * **borra_galeria.sh:**
-``` shell
+ ``` shell
 cd /home/pi/rpi_mjpg_streamer/resources/photos
-```
+ ```
 
 * **public/resources/**
  * **arranca_mjpgstreamer.php:**
-``` php
+ ``` php
 $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "w") or die("Unable to open file!");
-```
+ ```
  * **para_mjpgstreamer.php:**
-``` php
+ ``` php
 $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "w") or die("Unable to open file!");
-```
+ ```
  * **lee_estado_spibox.php:**
-``` php
+ ``` php
 $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_spibox.txt", "r") or die("Unable to open estado_spibox.txt file!");
-```
+ ```
  * **lee_estado_mjpgstreamer.php:**
-``` php
+ ``` php
 $file = fopen("/home/pi/rpi_mjpg_streamer/public/resources/estado_mjpgstreamer.txt", "r") or die("Unable to open estado_mjpgstreamer.txt file!");
-```
+ ```
 
 Additionaly, check that the following lines of "/public/index.html" contains the proper IP address (and MJPG-Streamer PORT):
 ``` html
-            <div id="arriba">
-                <object data="http://192.168.20.83:8081/?action=stream" width="320" height="240">
-                    <embed src="http://192.168.20.83:8081/?action=stream" width="320" height="240"> </embed>
-                        Error: No se ha podido cargar el vídeo.
-                </object>
-            </div>
+    <div id="arriba">
+        <object data="http://192.168.20.83:8081/?action=stream" width="320" height="240">
+            <embed src="http://192.168.20.83:8081/?action=stream" width="320" height="240"> </embed>
+                   Error: No se ha podido cargar el vídeo.
+        </object>
+    </div>
 ```
 
 ## Usage
