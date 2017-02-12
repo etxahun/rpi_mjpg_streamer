@@ -31,14 +31,16 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // Variables con rutas de programas:
-var path_lee_estado_mjpgstreamer 	= "/home/pi/rpi_mjpg_streamer/public/resources/lee_estado_mjpgstreamer.php";
-var path_lee_estado_spibox 		= "/home/pi/rpi_mjpg_streamer/public/resources/lee_estado_spibox.php";
-var path_camera_start 			= "/home/pi/rpi_mjpg_streamer/mjpg-streamer/camera_start.sh";
-var path_camera_stop 			= "/home/pi/rpi_mjpg_streamer/mjpg-streamer/camera_stop.sh";
-var path_spibox_start 			= "/home/pi/rpi_mjpg_streamer/spibox/spibox_start.sh";
-var path_spibox_stop 			= "/home/pi/rpi_mjpg_streamer/spibox/spibox_stop.sh";
-var path_mjpgstreamer_stop 		= "/home/pi/rpi_mjpg_streamer/public/resources/para_mjpgstreamer.php";
-var path_borragaleria			= "/home/pi/rpi_mjpg_streamer/spibox/borra_galeria.sh";
+var path_rpi_mjpg_streamer		= "/home/pi/rpi_mjpg_streamer"
+
+var path_lee_estado_mjpgstreamer 	= path_rpi_mjpg_streamer + "/public/resources/lee_estado_mjpgstreamer.php";
+var path_lee_estado_spibox 		= path_rpi_mjpg_streamer + "/public/resources/lee_estado_spibox.php";
+var path_camera_start 			= path_rpi_mjpg_streamer + "/mjpg-streamer/camera_start.sh";
+var path_camera_stop 			= path_rpi_mjpg_streamer + "/mjpg-streamer/camera_stop.sh";
+var path_spibox_start 			= path_rpi_mjpg_streamer + "/spibox/spibox_start.sh";
+var path_spibox_stop 			= path_rpi_mjpg_streamer + "/spibox/spibox_stop.sh";
+var path_mjpgstreamer_stop 		= path_rpi_mjpg_streamer + "/public/resources/para_mjpgstreamer.php";
+var path_borragaleria			= path_rpi_mjpg_streamer + "/spibox/borra_galeria.sh";
 
 // ===================================================================================================================================
 
