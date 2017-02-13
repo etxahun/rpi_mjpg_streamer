@@ -54,12 +54,15 @@ var path_rpi_mjpg_streamer = "/home/pi/rpi_mjpg_streamer"
 ```
 
 * **mjpg-streamer/**
-Just configure the following configuration file:
- * **project_path.cfg**
- ```sh
-rpi_mjpg_streamer_path="/home/pi/rpi_mjpg_streamer"
+ * **camera_stop.sh:**
+ ``` shell
+ echo -n 0 > "/home/odamae/odamaeweb_mjpg-streamer/public/resources/estado_mjpgstreamer.txt"
  ```
-
+ * **camera_start.sh:**
+ ``` shell
+echo -n 1 > "/home/odamae/odamaeweb_mjpg-streamer/public/resources/estado_mjpgstreamer.txt"
+./mjpg_streamer -o "output_http.so -w /home/odamae/odamaeweb_mjpg-streamer/mjpg-streamer/www -p 8081 -c <user>:<passwd>" -i "input_raspicam.so -rot 270 -fps 25 -q 50 -x 320 -y 240 ex nig$
+ ```
 
 * **spibox/**
  * **spiboxmessenger.py:**        
